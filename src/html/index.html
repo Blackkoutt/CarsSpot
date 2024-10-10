@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../assets/icon.ico" type="image/x-icon" />
+    <link href="../css/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>CarsSpot</title>
+  </head>
+  <body class="bg-primary_background">
+    <header class="flex justify-center py-4 font-roboto_flex">
+      <div class="flex justify-between items-center max-w-container w-default">
+        <figure id="logo" class="hover:cursor-pointer md:w-header_wrapper sm:w-fit">
+          <img
+            class="xxsm:max-w-32 xsm:max-w-full"
+            src="../../assets/CarsSpotLogo.png"
+            alt="Cars Spot Logo"
+          />
+        </figure>
+
+        <nav class="main_nav">
+          <ul class="list-none flex md:flex-row xxsm:flex-col md:gap-6 xxsm:gap-4">
+            <li class="nav-list-elem">Galeria zdjęć</li>
+            <li class="nav-list-elem">FAQ</li>
+          </ul>
+        </nav>
+
+        <div class="call-us-btn flex justify-end md:w-header_wrapper sm:w-fit">
+          <a class="btn btn-primary" href="#">Zadzwoń do nas</a>
+        </div>
+
+        <div class="xxsm:block sm:hidden">
+          <button class="menu_collapsed_button text-4xl text-primary_text_color">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div
+            class="main_menu_collapsed absolute z-10 right-2 grid transition-grid grid-rows-0fr py-5 px-7 rounded-md"
+          >
+            <div class="overflow-hidden flex flex-col gap-4"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section
+        id="hero"
+        class="relative flex flex-col items-center xl:h-hero lg:h-hero_lg md:h-hero_md xsm:h-hero_xsm xxsm:h-hero_xxsm lg:py-hero_lg sm:py-hero_sm xxsm:py-hero_xsm"
+      >
+        <div
+          id="hero_container"
+          class="flex flex-col justify-center items-start text-primary_text_color max-w-container w-default lg:gap-12 sm:gap-10 xxsm:gap-4"
+        >
+          <article id="hero_content" class="flex flex-col lg:gap-8 sm:gap-6 xxsm:gap-4">
+            <h1
+              class="font-bebas_neue uppercase tracking-header_H1 lg:text-header_H1 sm:text-6xl xxsm:text-xxsm_H1"
+            >
+              Sprzedajemy samochody<br />
+              z Europy
+            </h1>
+            <p class="font-roboto_condensed lg:text-base sm:text-[15px] xxsm:text-sm">
+              Kup komfortowy pojazd, aby każda podróż<br />
+              była wyjątkowym przeżyciem.
+            </p>
+          </article>
+          <section id="CTA" class="flex flex-row items-center gap-6">
+            <a class="btn btn-primary" href="#">Zobacz zdjęcia</a>
+            <a class="btn btn-secondary" href="#">Zadzwoń do nas </a>
+          </section>
+        </div>
+        <div id="hero_photo" class="absolute w-full xsm:top-hero_top xxsm:top-[340px] right-0 z-10">
+          <figure class="absolute right-0 ml-14">
+            <img src="../../assets/Hero.png" alt="Trzy czarne samochody" />
+          </figure>
+          <figure class="absolute right-0 ml-14">
+            <img
+              class="opacity-70"
+              src="../../assets/cień.png"
+              alt="Cień trzech czarnych samochodów"
+            />
+          </figure>
+        </div>
+        <div
+          id="canvas_wrapper"
+          class="absolute right-28 md:top-element_top xxsm:top-[-110px] sm:top-[-90px] -z-20"
+        >
+          <canvas id="canvas_element"> </canvas>
+        </div>
+      </section>
+      <section id="cars_gallery" class="pt-20 w-full flex flex-col items-center overflow-x-hidden">
+        <div class="flex flex-col items-start max-w-gallery w-default md:gap-6 xxsm:gap-3">
+          <div>
+            <p id="tag" class="font-roboto_condensed text-primary md:text-tag xxsm:text-lg">
+              Prezentacja firmy
+            </p>
+            <h2
+              class="text-header_H2_color font-bebas_neue uppercase md:text-header_H2 xxsm:text-[30px]"
+            >
+              Zobacz naszą galerię zdjęć
+            </h2>
+          </div>
+          <div id="switch_tabs">
+            <ul class="flex flex-row items-start md:gap-12 xxsm:gap-6">
+              <li>
+                <input type="radio" id="passenger_cars" name="cars" class="hidden peer" checked />
+                <label for="passenger_cars" class="tab tab-active">Samochody osobowe</label>
+              </li>
+              <li>
+                <input type="radio" id="delivery_vans" name="cars" class="hidden peer" />
+                <label for="delivery_vans" class="tab tab-active">Samochody dostawcze</label>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="photo_gallery_wrapper"
+            class="flex flex-col w-full items-center xl:py-20 md:pt-10 xxsm:pt-5 xxsm:pb-14 md:gap-12 xxsm:gap-8"
+          >
+            <div
+              class="gallery_scroll self-start w-gallery_scroll overflow-x-scroll no-scrollbar hover:cursor-move"
+            >
+              <div
+                data-target="passenger_cars"
+                class="photo_gallery flex flex-row items-center gap-16"
+              >
+                <figure>
+                  <img
+                    class="img"
+                    src="../../assets/red_car.png"
+                    alt="Zdjęcie czerwonego samochodu"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="img"
+                    src="../../assets/black_car.png"
+                    alt="Zdjęcie czerwonego samochodu"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="img"
+                    src="../../assets/car_headlight.png"
+                    alt="Zdjęcie czerwonego samochodu"
+                  />
+                </figure>
+                <div class="min-w-[70px] min-h-px"></div>
+              </div>
+              <div
+                data-target="delivery_vans"
+                class="photo_gallery self-start flex-row items-center gap-16 hidden"
+              >
+                <figure>
+                  <img
+                    class="img"
+                    src="../../assets/van_1.jpg"
+                    alt="Czarny samochód dostawczy marki Volkswagen"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="img"
+                    src="../../assets/van_2.jpg"
+                    alt="Biały samochód dostawczy marki Peugeot"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="img"
+                    src="../../assets/van_3.jpg"
+                    alt="Biały samochód dostawczy marki Mercedes"
+                  />
+                </figure>
+                <div class="min-w-[70px] min-h-px"></div>
+              </div>
+            </div>
+            <div id="photo_gallery_nav" class="flex flex-row gap-dot items-start">
+              <label>
+                <input type="radio" name="dots" class="hidden peer" checked />
+                <div class="dot dot-active"></div>
+              </label>
+              <label>
+                <input type="radio" name="dots" class="hidden peer" />
+                <div class="dot dot-active"></div>
+              </label>
+              <label>
+                <input type="radio" name="dots" class="hidden peer" />
+                <div class="dot dot-active"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="SEO"
+        class="flex justify-center items-center bg-seo_color w-full lg:py-seo xxsm:py-16"
+      >
+        <div
+          id="seo_wrapper"
+          class="flex items-start sm:justify-between xxsm:gap-12 max-w-container w-default sm:flex-row xxsm:flex-col"
+        >
+          <article
+            class="flex flex-col items-start sm:gap-4 xxsm:gap-seo_article_xsm xl:w-seo xxsm:w-full text-white"
+          >
+            <h3
+              class="tracking-header_H3 uppercase font-bebas_neue md:text-header_H3 xsm:text-xsm_H3 xxsm:text-xxsm_H3"
+            >
+              Id nostrud enim esse consectetur in eu mollit fugiat aute. Velit nulla commodo.
+            </h3>
+            <div
+              class="seo_content font-roboto_flex flex flex-col items-start sm:gap-6 xxsm:gap-3 md:text-seo_p xxsm:text-xsm_seo_p"
+            >
+              <div>
+                <p data-target="first_group">
+                  Mauris varius ipsum mauris, rutrum lobortis magna efficitur a. Donec egestas, nisl
+                  vehicula feugiat ornare, diam turpis efficitur mi, ac venenatis eros ipsum ac
+                  arcu. Vestibulum et [...]
+                </p>
+                <div data-target="first_group" class="accordion grid grid-rows-0fr transition-grid">
+                  <div class="overflow-hidden">
+                    <p>
+                      Mauris varius ipsum mauris, rutrum lobortis magna efficitur a. Donec egestas,
+                      nisl vehicula feugiat ornare, diam turpis efficitur mi, ac venenatis eros
+                      ipsum ac arcu. Vestibulum et quam in nunc pharetra cursus. Nullam id placerat
+                      erat. Maecenas sed sem id augue molestie aliquet. Fusce viverra eros urna, a
+                      tincidunt leo tempus quis. Sed tincidunt nisi non commodo pretium. In eros
+                      urna, venenatis quis suscipit vitae, varius lacinia nisi. Morbi eu posuere
+                      tellus, id aliquet dui. Fusce eget urna et est luctus varius. Duis sit amet
+                      elit elit. Suspendisse nunc mi, tincidunt auctor felis eu, feugiat aliquam
+                      ante. Morbi ut sem porta, placerat eros sed, euismod orci. Fusce metus nisl,
+                      suscipit ac pretium nec, fermentum egestas nisl. Integer eget convallis ex.
+                      Quisque porta molestie enim a rutrum. Nunc luctus mauris ullamcorper eros
+                      lacinia semper. Nam ornare eleifend vulputate.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative min-w-seo_button">
+                <button
+                  id="first_group"
+                  class="absolute seo_button transition-transform hover:-translate-y-1px duration-450 border-white border-b-seo_button pb-seo_button w-seo_button z-10 text-left"
+                >
+                  Rozwiń
+                </button>
+                <div class="absolute right-0 transition-transform duration-450 transform">
+                  &darr;
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="flex flex-col items-start sm:gap-4 xxsm:gap-seo_article_xsm xl:w-seo xxsm:w-full text-white"
+          >
+            <h3
+              class="tracking-header_H3 uppercase font-bebas_neue md:text-header_H3 xsm:text-xsm_H3 xxsm:text-xxsm_H3"
+            >
+              Id nostrud enim esse consectetur in eu mollit fugiat aute. Velit nulla commodo.
+            </h3>
+            <div
+              class="seo_content font-roboto_flex flex flex-col items-start sm:gap-6 xxsm:gap-3 md:text-seo_p xxsm:text-xsm_seo_p"
+            >
+              <div>
+                <p data-target="second_group">
+                  Mauris varius ipsum mauris, rutrum lobortis magna efficitur a. Donec egestas, nisl
+                  vehicula feugiat ornare, diam turpis efficitur mi, ac venenatis eros ipsum ac
+                  arcu. Vestibulum et [...]
+                </p>
+                <div
+                  data-target="second_group"
+                  class="accordion grid grid-rows-0fr transition-grid"
+                >
+                  <div class="overflow-hidden">
+                    <p>
+                      Mauris varius ipsum mauris, rutrum lobortis magna efficitur a. Donec egestas,
+                      nisl vehicula feugiat ornare, diam turpis efficitur mi, ac venenatis eros
+                      ipsum ac arcu. Vestibulum et quam in nunc pharetra cursus. Nullam id placerat
+                      erat. Maecenas sed sem id augue molestie aliquet. Fusce viverra eros urna, a
+                      tincidunt leo tempus quis. Sed tincidunt nisi non commodo pretium. In eros
+                      urna, venenatis quis suscipit vitae, varius lacinia nisi. Morbi eu posuere
+                      tellus, id aliquet dui. Fusce eget urna et est luctus varius. Duis sit amet
+                      elit elit. Suspendisse nunc mi, tincidunt auctor felis eu, feugiat aliquam
+                      ante. Morbi ut sem porta, placerat eros sed, euismod orci. Fusce metus nisl,
+                      suscipit ac pretium nec, fermentum egestas nisl. Integer eget convallis ex.
+                      Quisque porta molestie enim a rutrum. Nunc luctus mauris ullamcorper eros
+                      lacinia semper. Nam ornare eleifend vulputate.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative min-w-seo_button">
+                <button
+                  id="second_group"
+                  class="absolute seo_button transition-transform hover:-translate-y-1px duration-450 border-white border-b-seo_button pb-seo_button w-seo_button z-10 text-left"
+                >
+                  Rozwiń
+                </button>
+                <div class="absolute right-0 transition-transform duration-450 transform">
+                  &darr;
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="flex justify-center py-6 bg-footer_color border-t border-white font-roboto_condensed text-white md:text-base xxsm:text-sm"
+    >
+      <div class="flex flex-row justify-between items-center max-w-container w-default">
+        <p class="font-bold text-center">CarsSpot</p>
+        <a href="#" class="font-roboto_condensed text-center underline hover:cursor-pointer">
+          Polityka prywatności
+        </a>
+      </div>
+    </footer>
+
+    <script src="../js/curvePrinter.js"></script>
+    <script src="../js/galleryHandler.js"></script>
+    <script src="../js/menuAccordionTrigger.js"></script>
+    <script src="../js/seoAccordionTrigger.js"></script>
+    <script src="https://kit.fontawesome.com/0426dfe741.js" crossorigin="anonymous"></script>
+  </body>
+</html>

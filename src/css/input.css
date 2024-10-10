@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Chrome, Safari, Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* IE, Edge, Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE, Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+.img {
+  @apply max-w-none md:max-h-none xxsm:max-h-xxsm_photo xsm:max-h-xsm_photo sm:max-h-sm_photo;
+}
+.btn {
+  @apply font-roboto_flex xl:text-button xsm:text-sm xxsm:text-[13px] xsm:font-semibold xxsm:font-medium xxsm:px-2 text-center tracking-tight rounded-lg md:px-6 xsm:px-4 xxsm:py-3 hover:cursor-pointer z-10;
+}
+.btn-primary {
+  @apply bg-primary text-primary_button_text_color border-none hover:bg-primary_hover;
+}
+.btn-secondary {
+  @apply border border-primary text-primary hover:text-primary_hover hover:border-primary_hover hover:bg-primary_background_hover hover:bg-opacity-25;
+}
+.nav-list-elem {
+  @apply hover:cursor-pointer hover:text-gray-500 text-center xl:text-base xxsm:text-sm text-primary_text_color;
+}
+.tab {
+  @apply text-black font-roboto_flex md:text-button xxsm:text-sm tracking-tight hover:cursor-pointer;
+}
+.tab-active {
+  @apply peer-checked:text-primary peer-checked:font-semibold peer-checked:border-b peer-checked:border-primary transition duration-300;
+}
+.dot {
+  @apply rounded-full w-2 h-2 bg-dot_non_active hover:cursor-pointer;
+}
+.dot-active {
+  @apply peer-checked:bg-primary;
+}
+.transition-grid {
+  transition: grid-template-rows 500ms;
+}
