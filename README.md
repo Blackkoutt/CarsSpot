@@ -10,9 +10,11 @@
 # ℹ️ General info
 CarsSpot is a simple, fully responsive single page website built using only HTML, JavaScript, and Tailwind CSS.
 
+<h1 id="#getting-started"></h1>
+
 # 🚀 Getting Started
 
-### 💻 Run Demo
+### 🌐 Run Demo
 The website is live and available at the following link:  
 👉 [**CarsSpot Demo**](https://blackkoutt.github.io/CarsSpot/src/html/index.html)
 
